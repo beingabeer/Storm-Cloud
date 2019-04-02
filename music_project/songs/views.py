@@ -1,7 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Album
-from django.http import Http404
-
 
 def index(request):
     albums = Album.objects.all()
