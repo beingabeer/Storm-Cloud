@@ -2,7 +2,7 @@
     <ul>
         <h2>Here are all my albums</h2>
         {% for album in albums %}
-            <li><a href="/songs/{{ album.id }}/">{{ album.album_title }}</a></li>
+            <li><a href="{% url 'songs:detail' album.id %}">{{ album.album_title }}</a></li>
         {% endfor %}
     </ul>
 {% else %}
