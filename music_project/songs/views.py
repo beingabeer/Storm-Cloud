@@ -1,29 +1,15 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,get_object_or_404
 from .models import Album
-
-# albums = [
-#     {
-#         'artist': 'Usher',
-#         'album_title': 'Over the moon',
-#         'genre': 'Hip-Hop'
-#     },
-#     {
-#         'artist': 'Taylor Swift',
-#         'album_title': 'Red',
-#         'genre': 'Country'
-#     }
-# ]
+from django.http import Http404
 
 
 def index(request):
     albums = Album.objects.all()
-    context = {
-        'albums': albums
-    }
+    context = {'albums': albums}
     return render(request, 'songs/index.html', context)
 
 
 
-def detail(request, pk):
-    return HttpResponse("<h2>Details for Album id: " + str(pk) +  "</h2>")
+def detail(request, album_id):
+    album = Album.objects.get(pk=album_id)
+    return render(request, "songs/detail.html", {'album': album})
