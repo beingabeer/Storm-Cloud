@@ -8,5 +8,5 @@ urlpatterns = [
     path('songs/', views.index, name='index'),
 
     # /songs/71/
-    path('songs/<int:pk>/', views.detail, name='detail'),
+    path('songs/<int:album_id>/', views.detail, name='detail'),
 ]
