@@ -1,5 +1,6 @@
 {% extends 'songs/base.html' %}
 {% load static %}
+{% block title %}Album Detail{% endblock title %}
 {% block content %}
     <img src="{{ album.album_logo }}" width="230" height="230">
     <h1>{{album.album_title}}</h1>
