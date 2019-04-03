@@ -1,24 +1,27 @@
+{% extends 'songs/base.html' %}
 {% load static %}
-<img src="{{ album.album_logo }}" width="230" height="230">
-<h1>{{album.album_title}}</h1>
-<h2>{{album.artist}}</h2>
+{% block content %}
+    <img src="{{ album.album_logo }}" width="230" height="230">
+    <h1>{{album.album_title}}</h1>
+    <h2>{{album.artist}}</h2>
 
-{% if error_message %}
-    <p>{{ error_message }}</p>
-{% endif %}
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
 
 
-<form action="{% url 'songs:favorite' album.id %}" method="post">
-    {% csrf_token %}
-    {% for song in album.song_set.all %}
-        <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
-        <label for="song{{ forloop.counter }}">
-            {{ song.song_title }}
-            {% if song.is_favorite %}
-                <img src="{% static 'songs/images/Star-icon.png' %}" width="22" height="22">
-            {% endif %}
-        </label>
-        <br>
-    {% endfor %}
-    <input type="submit" value="Favorite">
-</form>
+    <form action="{% url 'songs:favorite' album.id %}" method="post">
+        {% csrf_token %}
+        {% for song in album.song_set.all %}
+            <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+            <label for="song{{ forloop.counter }}">
+                {{ song.song_title }}
+                {% if song.is_favorite %}
+                    <img src="{% static 'songs/images/Star-icon.png' %}" width="22" height="22">
+                {% endif %}
+            </label>
+            <br>
+        {% endfor %}
+        <input type="submit" value="Favorite">
+    </form>
+{% endblock content %}
