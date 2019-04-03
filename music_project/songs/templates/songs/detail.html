@@ -8,7 +8,7 @@
     {% for song in album.song_set.all %}
         {{ song.song_title }}
         {% if song.is_favorite %}
-            <img src="{% static 'songs/images/Star-icon.png' %}" width="22" height="22">
+            <img src="{% static 'songs/images/star_icon.png' %}" width="22" height="22">
         {% endif %}
         <br>
     {% endfor %}
