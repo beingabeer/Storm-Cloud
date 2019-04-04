@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <a href="{% url 'songs:detail' album.id %}">
                         {% if album.album_logo %}
-                            <img src="{{ album.album_logo }}" class="img-fluid img-thumbnail" style="width:100%;margin-bottom: 15px;">
+                            <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="width:100%;margin-bottom: 15px;">
                         {% else %}
                             <h3>No image to display</h3>
                         {% endif %}
