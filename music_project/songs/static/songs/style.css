@@ -48,3 +48,9 @@ ul.errorlist > li {
 .glyphicon-star.active {
     color: #FDB230;
 }
+
+#truncateLongTexts {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
