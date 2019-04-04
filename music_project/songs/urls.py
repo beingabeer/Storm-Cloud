@@ -9,4 +9,7 @@ urlpatterns = [
 
     # /songs/71/
     path('songs/<int:pk>/', views.DetailView.as_view(), name='detail'),
+
+    # /songs/album/add/
+    path('songs/album/add', views.AlbumCreate.as_view(), name='album-add'),
 ]
