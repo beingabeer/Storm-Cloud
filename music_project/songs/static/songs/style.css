@@ -54,3 +54,14 @@ ul.errorlist > li {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  margin-top: 25px;
+}
