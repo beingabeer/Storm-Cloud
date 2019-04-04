@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Album, Song
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 
 class IndexView(ListView):
@@ -21,6 +22,15 @@ class AlbumCreate(CreateView):
     fields = ['artist', 'album_title', 'genre', 'album_logo']
 
 
+class AlbumUpdate(UpdateView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+
+class AlbumDelete(DeleteView):
+    model = Album
+    fields = ['artist', 'album_title', 'genre', 'album_logo']
+    success_url = reverse_lazy('songs:index')
 # def index(request):
 #     albums = Album.objects.all()
 #     context = {'albums': albums}
