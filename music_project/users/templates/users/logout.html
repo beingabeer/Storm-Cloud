@@ -1,0 +1,16 @@
+{% extends 'songs/base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="content-section">
+                <h2>You have been Logged out Successfully</h2>
+                <div class="border-top pt-3">
+                 <a class="" href="{% url 'users:login' %}">Sign In Again</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
