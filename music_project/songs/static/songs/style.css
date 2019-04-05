@@ -65,3 +65,40 @@ ul.errorlist > li {
   padding-bottom: 30px;
   margin-top: 25px;
 }
+
+input {
+    border: 2px solid silver;
+    -webkit-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    padding: 15px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 0 0;
+}
+
+
+
+img {
+  object-fit: cover;
+  width:512px;
+  height:512px;
+}
+
+.btn-warning,
+.btn-warning:active,
+.btn-warning:visited,
+.btn-warning:focus {
+    background-color: #8064A2;
+    border-color: #8064A2;
+}
+
+.btn-warning:hover {
+    background-color: purple;
+    border-color: purple;
+}

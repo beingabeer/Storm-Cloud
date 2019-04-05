@@ -11,9 +11,9 @@
         {% if albums %}
             {% for album in albums %}
                 <div class="col-md-3">
-                    <div class="thumbnail" style="background: white;padding: 20px; margin-bottom: 20px;">
+                    <div class="thumbnail" style="background: white;padding: 10px; margin-bottom: 20px;">
                         <a href="{% url 'songs:detail' album.id %}">
-                            <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="width:100%;margin-bottom: 15px;">
+                            <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="margin-bottom: 15px;">
                         </a>
                         <div class="caption" >
                             <h2 id="truncateLongTexts">{{ album.album_title }}</h2>
