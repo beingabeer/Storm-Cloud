@@ -31,6 +31,8 @@ class AlbumDelete(DeleteView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
     success_url = reverse_lazy('songs:index')
+
+
 # def index(request):
 #     albums = Album.objects.all()
 #     context = {'albums': albums}
