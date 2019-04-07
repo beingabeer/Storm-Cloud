@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.http import JsonResponse
 from .forms import SongForm
 from django.contrib import messages
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 class IndexView(LoginRequiredMixin, ListView):
@@ -22,13 +22,19 @@ class IndexView(LoginRequiredMixin, ListView):
     # return Album.objects.all()
 
 
-class DetailView(LoginRequiredMixin, DetailView):
+class DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Album
     template_name = 'songs/detail.html'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+    def test_func(self):
+        album = self.get_object()
+        if self.request.user == album.user:
+            return True
+        return False
 
 
 class AlbumCreate(LoginRequiredMixin, CreateView):
@@ -40,15 +46,34 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class AlbumUpdate(LoginRequiredMixin, UpdateView):
+class AlbumUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
-class AlbumDelete(DeleteView):
+    def test_func(self):
+        album = self.get_object()
+        if self.request.user == album.user:
+            return True
+        return False
+
+
+class AlbumDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Album
-    fields = ['artist', 'album_title', 'genre', 'album_logo']
-    success_url = reverse_lazy('songs:index')
+    success_url = '/songs/'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        album = self.get_object()
+        if self.request.user == album.user:
+            return True
+        return False
 
 
 def favorite_album(request, id):

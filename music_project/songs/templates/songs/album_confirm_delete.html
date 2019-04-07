@@ -1,0 +1,25 @@
+{% extends 'songs/base.html' %}
+{% block title %}Add a New Album{% endblock %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="content-section">
+                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4"><h2>Delete Album</h2></legend>
+                            <h4>Are you sure you want to delete the Album "{{ object.album_title }}"</h4>
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-danger btn-md" type="submit">Delete</button>
+                            <a href="{% url 'songs:index' %}" class="btn btn-secondary btn-md" >Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
