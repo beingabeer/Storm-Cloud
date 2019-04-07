@@ -64,19 +64,19 @@
                                 <td>{{ song.song_title }}</td>
                                 <td>
                                     <a target="_blank" href="#">
-                                        <button type="button" class="btn btn-success btn-md">
+                                        <button type="button" class="btn btn-success btn-sm">
                                             <i class="fa fa-play fa-lg"></i>&nbsp; Play
                                         </button>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn-favorite"><i class="fa fa-star fa-lg"></i></a>
+                                    &nbsp;&nbsp;<a href="#" class="btn btn-light btn-sm"><i class="fa fa-star fa-lg"></i></a>
                                 </td>
                                 <td>
                                     <form action="" method="post" style="display: inline;">
                                         {% csrf_token %}
                                         <input type="hidden" name="song_id" value="{{ song.id }}" />
-                                        <button type="submit" class="btn btn-danger btn-md">
+                                        <button type="submit" class="btn btn-danger btn-sm">
                                             <i class="fa fa-times fa-lg"></i>&nbsp; Delete
                                         </button>
                                     </form>

@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 
 
 class Album(models.Model):
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=250)
     genre = models.CharField(max_length=100)
-    album_logo = models.FileField()
+    album_logo = models.FileField(default='logo.jpg', upload_to='album_logo')
     date_created = models.DateTimeField(default=timezone.now)
-    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
@@ -22,8 +22,8 @@ class Album(models.Model):
 
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    file_type = models.CharField(max_length=10)
     song_title = models.CharField(max_length=250)
+    audio_file = models.FileField(default='', upload_to='audio_files')
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
