@@ -5,6 +5,7 @@ from django.urls import reverse_lazy
 from django.http import JsonResponse
 from .forms import SongForm
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(ListView):
@@ -22,9 +23,13 @@ class DetailView(DetailView):
     template_name = 'songs/detail.html'
 
 
-class AlbumCreate(CreateView):
+class AlbumCreate(LoginRequiredMixin, CreateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class AlbumUpdate(UpdateView):
