@@ -65,7 +65,7 @@ def create_song(request, album_id):
                 context = {
                     'album': album,
                     'form': form,
-                    'error_message': 'You already added that song',
+                    'error_message': messages.warning(request, f'Song Already Exists!'),
                 }
                 return render(request, 'songs/song_form.html', context)
         song = form.save(commit=False)
@@ -82,7 +82,8 @@ def create_song(request, album_id):
             return render(request, 'songs/song_form.html', context)
 
         song.save()
-        return redirect('songs:detail', pk=album_id)
+        messages.success(request, f'Song Added!')
+        return render(request, 'songs/detail.html', {'album': album})
     context = {
         'album': album,
         'form': form,
