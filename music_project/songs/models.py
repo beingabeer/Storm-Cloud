@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class Album(models.Model):
@@ -9,6 +10,7 @@ class Album(models.Model):
     genre = models.CharField(max_length=100)
     album_logo = models.FileField()
     date_created = models.DateTimeField(default=timezone.now)
+    user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.album_title + ' (by ' + self.artist + ')'
