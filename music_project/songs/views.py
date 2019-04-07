@@ -5,11 +5,13 @@ from django.urls import reverse_lazy
 
 
 class IndexView(ListView):
+    model = Album
     template_name = 'songs/index.html'
     context_object_name = 'albums'
+    ordering = ['-date_created']
 
-    def get_queryset(self):
-        return Album.objects.all()
+    # def get_queryset(self):
+    # return Album.objects.all()
 
 
 class DetailView(DetailView):
