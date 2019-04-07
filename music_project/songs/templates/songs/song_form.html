@@ -1,0 +1,62 @@
+{% extends 'songs/base.html' %}
+{% block title %}Add a New Song{% endblock %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<div class="container songs-container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card" style="margin-top: 25px;">
+                <div class="card-body" style="padding: 10px;">
+                    <a href="{% url 'songs:detail' album.id %}">
+                        {% if album.album_logo %}
+                            <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="width:100%;margin-bottom: 15px;">
+                        {% else %}
+                            <h3>No image to display</h3>
+                        {% endif %}
+                    </a>
+                    <h2>{{ album.album_title }} <small class="text-muted" style="font-size:20px;">({{ album.genre }})</small></h2>
+                    <h3>{{ album.artist }}</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right Song Info -->
+        <div class="col-md-9">
+
+            <ul class="nav nav-pills" style="margin-top: 25px;">
+                <button type="button" class="btn btn-primary btn-md">
+                    <li role="presentation" class="nav-item active"><a style="color: white;text-decoration-line: none;" href="{% url 'songs:detail' album.id %}">View All</a></li>
+                </button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-warning btn-md"  >
+                    <li role="presentation" class="nav-item active"><a  style="color: white;text-decoration-line: none;" href="{% url 'songs:album-update' album.id %}">Edit Album Cover</a></li>
+                </button>
+            </ul>
+
+            <div class="card" style="margin-top: 25px;">
+                <div class="card-body" style="padding: 20px;">
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Add a New Song</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

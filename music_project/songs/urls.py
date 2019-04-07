@@ -22,4 +22,7 @@ urlpatterns = [
     # /songs/
     path('songs/<int:id>/favorite_album', views.favorite_album, name='favorite_album'),
 
+    # /songs/58/add_song/
+    path('songs/<int:album_id>/add_song/', views.create_song, name='track-add'),
+
 ]
