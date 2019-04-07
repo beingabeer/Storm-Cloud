@@ -9,13 +9,11 @@
         <div class="col-md-3">
             <div class="card" style="margin-top: 25px;">
                 <div class="card-body" style="padding: 10px;">
-                    <a href="{% url 'songs:detail' album.id %}">
                         {% if album.album_logo %}
                             <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="width:100%;margin-bottom: 15px;">
                         {% else %}
                             <h3>No image to display</h3>
                         {% endif %}
-                    </a>
                     <h2>{{ album.album_title }} <small class="text-muted" style="font-size:20px;">({{ album.genre }})</small></h2>
                     <h3>{{ album.artist }}</h3>
                 </div>
