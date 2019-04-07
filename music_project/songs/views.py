@@ -8,19 +8,27 @@ from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class IndexView(ListView):
+class IndexView(LoginRequiredMixin, ListView):
     model = Album
     template_name = 'songs/index.html'
     context_object_name = 'albums'
     ordering = ['-date_created']
 
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+
     # def get_queryset(self):
     # return Album.objects.all()
 
 
-class DetailView(DetailView):
+class DetailView(LoginRequiredMixin, DetailView):
     model = Album
     template_name = 'songs/detail.html'
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 
 class AlbumCreate(LoginRequiredMixin, CreateView):
@@ -32,7 +40,7 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class AlbumUpdate(UpdateView):
+class AlbumUpdate(LoginRequiredMixin, UpdateView):
     model = Album
     fields = ['artist', 'album_title', 'genre', 'album_logo']
 
