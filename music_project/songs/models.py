@@ -28,6 +28,3 @@ class Song(models.Model):
 
     def __str__(self):
         return self.song_title
-
-    def get_absolute_url(self):
-        return reverse('songs:detail', kwargs={'pk': self.pk})

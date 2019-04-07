@@ -3,7 +3,7 @@ from .models import Album, Song
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
-from .forms import SongForm
+# from .forms import SongForm
 from django.contrib import messages
 
 
@@ -52,30 +52,31 @@ def favorite_album(request, id):
         return redirect('songs:index')
 
 
-def create_song(request, album_id):
-    form = SongForm(request.POST or None, request.FILES or None)
-    album = get_object_or_404(Album, pk=album_id)
-    if form.is_valid():
-        albums_songs = album.song_set.all()
-        for s in albums_songs:
-            if s.song_title == form.cleaned_data.get("song_title"):
-                context = {
-                    'album': album,
-                    'form': form,
-                    'error_message': messages.info(request, f'You already added that Song'),
-                }
-                return render(request, 'songs/song_form.html', context)
-        song = form.save(commit=False)
-        song.album = album
-        song.audio_file = request.FILES['audio_file']
+# def create_song(request, album_id):
+#     form = SongForm(request.POST or None, request.FILES or None)
+#     album = get_object_or_404(Album, pk=album_id)
+#     if form.is_valid():
+#         albums_songs = album.song_set.all()
+#         for s in albums_songs:
+#             if s.song_title == form.cleaned_data.get("song_title"):
+#                 context = {
+#                     'album': album,
+#                     'form': form,
+#                     'error_message': messages.error(request, f'You already added that Song'),
+#                 }
+#                 return render(request, 'songs/song_form.html', context)
+#         song = form.save(commit=False)
+#         song.album = album
+#         song.audio_file = request.FILES['audio_file']
 
-        song.save()
-        return render(request, 'songs/detail.html', {'album': album})
-    context = {
-        'album': album,
-        'form': form,
-    }
-    return render(request, 'songs/song_form.html', context)
+#         song.save()
+#         return redirect('songs:detail')
+
+#     context = {
+#         'album': album,
+#         'form': form,
+#     }
+#     return render(request, 'songs/song_form.html', context)
 
 
 # def index(request):
