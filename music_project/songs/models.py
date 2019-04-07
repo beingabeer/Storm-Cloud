@@ -11,6 +11,7 @@ class Album(models.Model):
     album_logo = models.FileField()
     date_created = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User, default=1, on_delete=models.CASCADE)
+    is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.album_title + ' (by ' + self.artist + ')'
