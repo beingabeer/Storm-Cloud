@@ -40,6 +40,13 @@ ul.errorlist > li {
     border-radius: 0;
 }
 
+.fa-star {
+    color: #CCCCCC;
+}
+
+.fa-star.active {
+    color: #FDB230;
+}
 
 #truncateLongTexts {
   white-space: nowrap;
