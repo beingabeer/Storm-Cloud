@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Album, Song
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -36,8 +36,8 @@ class AlbumDelete(DeleteView):
     success_url = reverse_lazy('songs:index')
 
 
-def favorite_album(request, album_id):
-    album = get_object_or_404(Album, pk=album_id)
+def favorite_album(request, id):
+    album = get_object_or_404(Album, pk=id)
     try:
         if album.is_favorite:
             album.is_favorite = False
@@ -47,7 +47,7 @@ def favorite_album(request, album_id):
     except (KeyError, Album.DoesNotExist):
         return JsonResponse({'success': False})
     else:
-        return JsonResponse({'success': True})
+        return redirect('songs:index')
 
 
 # def index(request):
