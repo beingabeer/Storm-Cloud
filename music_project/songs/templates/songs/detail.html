@@ -33,7 +33,7 @@
                     <li role="presentation" class="nav-item active"><a style="color: white;text-decoration-line: none;" href="{% url 'songs:detail' album.id %}">View All</a></li>
                 </button>&nbsp;&nbsp;
                 <button type="button" class="btn btn-info btn-md">
-                <li role="presentation" class="nav-item"><a style="text-decoration-line: none;color: white;" href="#">Add New Song</a></li>
+                <li role="presentation" class="nav-item"><a style="text-decoration-line: none;color: white;" href="{% url 'songs:track-add' album.id %}">Add New Song</a></li>
                 </button>&nbsp;&nbsp;
                 <button type="button" class="btn btn-warning btn-md"  >
                     <li role="presentation" class="nav-item active"><a  style="color: white;text-decoration-line: none;" href="{% url 'songs:album-update' album.id %}">Edit Album Cover</a></li>
