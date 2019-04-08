@@ -27,6 +27,9 @@ urlpatterns = [
     # /music/58/add_song/
     path('music/<int:album_id>/add_song/', views.create_song, name='track-add'),
 
+
     path('music/<int:album_id>/delete_song/<int:song_id>/', views.delete_song, name='song-delete'),
-    # url(r'^(?P<album_id>[0-9]+)/delete_song/(?P<song_id>[0-9]+)/$', views.delete_song, name='song-delete'),
+
+    # url(r'^(?P<song_id>[0-9]+)/favorite/$', views.favorite_song, name='favorite_song'),
+    path('music/<int:album_id>/favorite_song/<int:song_id>/', views.favorite_song, name='favorite_song'),
 ]

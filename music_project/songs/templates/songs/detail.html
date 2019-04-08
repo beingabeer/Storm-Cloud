@@ -67,7 +67,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    &nbsp;&nbsp;<a href="#" class="btn btn-light btn-sm"><i class="fa fa-star fa-lg"></i></a>
+                                    &nbsp;&nbsp;<a href="{% url 'songs:favorite_song' album.id song.id %}" class="btn btn-light btn-sm"><i class="fa fa-star fa-lg {% if song.is_favorite %}active{% endif %}"></i></a>
                                 </td>
                                 <td>
                                         <a href="{% url 'songs:song-delete' album.id song.id %}">
