@@ -18,9 +18,6 @@ class IndexView(LoginRequiredMixin, ListView):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
-    # def get_queryset(self):
-    # return Album.objects.all()
-
 
 class DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Album
@@ -115,7 +112,7 @@ def create_song(request, album_id):
             context = {
                 'album': album,
                 'form': form,
-                'error_message': 'Audio file must be WAV, MP3, or OGG',
+                'error_message': messages.warning(request, f'Audio file must be WAV, MP3, or OGG'),
             }
             return render(request, 'songs/song_form.html', context)
 
@@ -129,12 +126,8 @@ def create_song(request, album_id):
     return render(request, 'songs/song_form.html', context)
 
 
-# def index(request):
-#     albums = Album.objects.all()
-#     context = {'albums': albums}
-#     return render(request, 'songs/index.html', context)
-
-
-# def detail(request, album_id):
-#     album = get_object_or_404(Album, pk=album_id)
-#     return render(request, "songs/detail.html", {'album': album})
+def delete_song(request, album_id, song_id):
+    album = get_object_or_404(Album, pk=album_id)
+    song = Song.objects.get(pk=song_id)
+    song.delete()
+    return render(request, 'songs/detail.html', {'album': album})

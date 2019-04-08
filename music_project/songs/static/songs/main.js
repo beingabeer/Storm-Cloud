@@ -17,7 +17,7 @@ var AlbumsListPage = {
             var url = $(this).attr('href');
             $.getJSON(url, function(result) {
                 if (result.success) {
-                    $('.glyphicon-star', self).toggleClass('active');
+                    $('fa-star', self).toggleClass('active');
                 }
             });
 
@@ -45,7 +45,8 @@ var SongsListPage = {
             var url = $(this).attr('href');
             $.getJSON(url, function(result) {
                 if (result.success) {
-                    $('.glyphicon-star', self).toggleClass('active');
+                    $('fa-star', self).toggleClass('active');
+                    window.location('http://localhost:8000/songs/')
                 }
             });
 
@@ -58,3 +59,11 @@ $(document).ready(function() {
     AlbumsListPage.init();
     SongsListPage.init();
 });
+
+
+
+window.setTimeout(function() {
+  $("#alert_message").fadeTo(500, 0).slideUp(500, function(){
+    $(this).remove();
+  });
+}, 3000);

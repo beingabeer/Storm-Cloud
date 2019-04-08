@@ -9,7 +9,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=250)
     genre = models.CharField(max_length=100)
-    album_logo = models.FileField(default='logo.jpg', upload_to='album_logo')
+    album_logo = models.FileField(default='amber_treble.png', upload_to='album_logo')
     date_created = models.DateTimeField(default=timezone.now)
     is_favorite = models.BooleanField(default=False)
 

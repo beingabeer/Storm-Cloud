@@ -60,7 +60,7 @@
                             <tr>
                                 <td>{{ song.song_title }}</td>
                                 <td>
-                                    <a target="_blank" href="#">
+                                    <a target="_blank" href="{{ song.audio_file.url }}">
                                         <button type="button" class="btn btn-success btn-sm">
                                             <i class="fa fa-play fa-lg"></i>&nbsp; Play
                                         </button>
@@ -70,13 +70,11 @@
                                     &nbsp;&nbsp;<a href="#" class="btn btn-light btn-sm"><i class="fa fa-star fa-lg"></i></a>
                                 </td>
                                 <td>
-                                    <form action="" method="post" style="display: inline;">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="song_id" value="{{ song.id }}" />
+                                        <a href="{% url 'songs:song-delete' album.id song.id %}">
                                         <button type="submit" class="btn btn-danger btn-sm">
                                             <i class="fa fa-times fa-lg"></i>&nbsp; Delete
                                         </button>
-                                    </form>
+                                        </a>
                                 </td>
                             </tr>
                         {% endfor %}
