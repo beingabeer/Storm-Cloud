@@ -1,15 +1,13 @@
-{% extends 'music/base.html' %}
+{% extends 'songs/base.html' %}
 {% block title %}All Songs{% endblock %}
-{% block songs_active %}active{% endblock %}
 
-{% block body %}
-<div class="container-fluid songs-container">
+{% block content %}
+<div class="container songs-container">
 
     <div class="row">
-        <div class="col-sm-12">
-            <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'music:songs' 'all' %}">View All</a></li>
-                <li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'music:songs' 'favorites' %}">Favorites</a></li>
+        <div class="col-md-12">
+            <ul class="nav nav-pills" style="margin-bottom: 25px;">
+                <li role="presentation"><a href="{% url 'songs:all-songs' %}">View All</a></li>
             </ul>
         </div>
     </div>
@@ -18,8 +16,8 @@
 
         <div class="col-sm-12">
 
-            <div class="panel panel-default">
-                <div class="panel-body">
+            <div class="card">
+                <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
@@ -27,7 +25,7 @@
                                 <th>Artist</th>
                                 <th>Audio File</th>
                                 <th>Album</th>
-                                <th>Favorite</th>
+                                <!-- <th>Favorite</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -38,19 +36,17 @@
                                     <td>
                                         <a target="_blank" href="{{ song.audio_file.url }}">
                                             <button type="button" class="btn btn-success btn-xs">
-                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+                                                <i class="fa fa-play fa-lg"></i>&nbsp; Play
                                             </button>
                                         </a>
                                     </td>
                                     <td>
-                                        <a href="{% url 'music:detail' song.album.id %}">
-                                            <img src="{{ song.album.album_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
+                                        <a href="{% url 'songs:detail' song.album.id %}">
+                                            <img src="{{ song.album.album_logo.url }}" class="img-fluid" style="width: 40px; float: left; margin-right: 10px;" />
                                         </a>
-                                        <a href="{% url 'music:detail' song.album.id %}">{{ song.album.album_title }}</a>
+                                        <a  href="{% url 'songs:detail' song.album.id %}">{{ song.album.album_title }}</a>
                                     </td>
-                                    <td>
-                                        <a href="{% url 'music:favorite' song.id %}" class="btn-favorite"><span class="glyphicon glyphicon-star {% if song.is_favorite %}active{% endif %}"></span></a>
-                                    </td>
+
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -63,4 +59,4 @@
     </div>
 
 </div>
-{% endblock %}
+{% endblock content %}

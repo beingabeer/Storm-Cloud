@@ -6,6 +6,7 @@ from django.http import JsonResponse
 from .forms import SongForm
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 
 
 class IndexView(LoginRequiredMixin, ListView):
@@ -73,6 +74,7 @@ class AlbumDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return False
 
 
+@login_required
 def favorite_album(request, id):
     album = get_object_or_404(Album, pk=id)
     try:
@@ -147,3 +149,19 @@ def favorite_song(request, album_id, song_id):
     else:
         # return JsonResponse({'success': True})
         return render(request, 'songs/detail.html', {'album': album})
+
+
+@login_required
+def songs(request):
+    # if not request.user.is_authenticated():
+        # return render(request, 'music/login.html')
+    # else:
+    try:
+        song_ids = []
+        for album in Album.objects.all():
+            for song in album.song_set.all():
+                song_ids.append(song.pk)
+        songs = Song.objects.all()
+    except Album.DoesNotExist:
+        songs = []
+    return render(request, 'songs/tracks.html', {'song_list': songs})

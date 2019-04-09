@@ -9,6 +9,8 @@ urlpatterns = [
     # /songs/
     path('', views.IndexView.as_view(), name='index'),
 
+    path('music/tracks/', views.songs, name='all-songs'),
+
     # /songs/71/
     path('music/<int:pk>/', views.DetailView.as_view(), name='detail'),
 

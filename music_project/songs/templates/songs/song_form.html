@@ -24,14 +24,12 @@
         <!-- Right Song Info -->
         <div class="col-md-7">
 
-            <ul class="nav nav-pills" style="margin-top: 25px;">
-                <button type="button" class="btn btn-primary btn-md">
-                    <li role="presentation" class="nav-item active"><a style="color: white;text-decoration-line: none;" href="{% url 'songs:detail' album.id %}">View All Tracks</a></li>
-                </button>&nbsp;&nbsp;
-                <button type="button" class="btn btn-warning btn-md"  >
-                    <li role="presentation" class="nav-item active"><a  style="color: white;text-decoration-line: none;" href="{% url 'songs:album-update' album.id %}">Edit Album Cover</a></li>
-                </button>
-            </ul>
+            <div style="margin-top: 25px;">
+                <a style="color: white;text-decoration-line: none;" class="btn btn-primary btn-md" role="button" href="{% url 'songs:detail' album.id %}">View All Tracks</a>&nbsp;&nbsp;
+
+
+                <a style="color: white;text-decoration-line: none;" class="btn btn-warning btn-md" role="button" href="{% url 'songs:album-update' album.id %}">Edit Album Cover</a>&nbsp;&nbsp;
+            </div>
 
             <div class="card" style="margin-top: 25px;">
                 <div class="card-body" style="padding: 20px;">
