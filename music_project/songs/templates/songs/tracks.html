@@ -6,9 +6,12 @@
 
     <div class="row">
         <div class="col-md-12">
-            <ul class="nav nav-pills" style="margin-bottom: 25px;">
-                <li role="presentation"><a href="{% url 'songs:all-songs' %}">View All</a></li>
-            </ul>
+            <div style="margin-top:  25px;margin-bottom: 25px;">
+                <a style="color: white;text-decoration-line: none;" class="btn btn-primary btn-md" role="button" href="{% url 'songs:all-songs' %}">View All</a>&nbsp;&nbsp;
+
+                 <a style="color: white;text-decoration-line: none;" class="btn btn-warning btn-md" role="button" href="#">View Favorites</a>&nbsp;&nbsp;
+
+            </div>
         </div>
     </div>
 
@@ -18,8 +21,8 @@
 
             <div class="card">
                 <div class="card-body">
-                    <table class="table">
-                        <thead>
+                    <table class="table table-hover">
+                        <thead class="thead-light">
                             <tr>
                                 <th>Song Title</th>
                                 <th>Artist</th>
