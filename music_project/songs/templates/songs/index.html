@@ -36,8 +36,15 @@
             {% endfor %}
         {% else %}
         <div class="container h-100 d-flex justify-content-center">
-            <div class="jumbotron my-auto">
-              <h1 class="display-3">No Added Albums</h1>
+            <div class="jumbotron my-auto" style="background-color: black;color: white;">
+              <h1 class="display-6" style="text-decoration-color: white;">Add an Album</h1>
+              <div style="text-align: center;">
+                <a href="{% url 'songs:album-add' %}" style="color: white;">
+                  <button class="btn btn-danger btn-lg">
+                    <i class="fa fa-plus fa-lg"></i>&nbsp;Add Album
+                  </button>
+                  </a>
+              </div>
             </div>
         </div>
         {% endif %}

@@ -60,7 +60,8 @@ ul.errorlist > li {
 
 
 .content-section {
-  background: #ffffff;
+  background: #000000;
+  color: white;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
