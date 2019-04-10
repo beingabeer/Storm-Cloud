@@ -11,7 +11,7 @@
             </div>
             {% for album in albums %}
                 <div class="col-md-3">
-                    <div class="thumbnail" style="background: white;padding: 10px; margin-bottom: 20px;">
+                    <div class="thumbnail" style="background: #343a40;color: white;padding: 10px; margin-bottom: 20px;">
                         <a href="{% url 'songs:detail' album.id %}">
                             <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="margin-bottom: 15px;">
                         </a>
@@ -23,13 +23,12 @@
                             <a href="{% url 'songs:detail' album.id %}" class="btn btn-primary btn-md" role="button">View Details</a>
 
                             <!-- Delete Album -->
-                                <a href="{% url 'songs:album-delete' album.id %}" class="btn btn-light"><i class="fa fa-trash fa-lg"></i></a>
+                                <a href="{% url 'songs:album-delete' album.id %}" class="btn btn-dark"><i class="fa fa-trash-alt fa-lg"></i></a>
 
                             <!-- Favorite Album -->
-                            <a href="{% url 'songs:favorite_album' album.id %}" class="btn btn-light " role="button">
+                            <a href="{% url 'songs:favorite_album' album.id %}" class="btn btn-dark " role="button">
                                 <i class="fa fa-star {% if album.is_favorite %}active{% endif %} fa-lg"></i>
                             </a>
-
                         </div>
                     </div>
                 </div>
