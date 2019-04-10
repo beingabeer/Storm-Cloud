@@ -53,6 +53,7 @@
               </div>
           </nav>
         </header>
+    <div style="margin-top: 70px;">
     {% if messages %}
       {% for message in messages %}
 
@@ -64,6 +65,9 @@
               </div>
       {% endfor %}
     {% endif %}
+    </div>
+
+
     <div style="margin-top: 70px;">
     {% block content %}
     {% endblock content %}

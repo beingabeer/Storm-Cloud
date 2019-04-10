@@ -46,6 +46,7 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
 
 class AlbumUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Album
+    template_name = 'songs/album_form_update.html'
     fields = ['artist', 'album_title', 'genre', 'album_logo']
 
     def form_valid(self, form):
