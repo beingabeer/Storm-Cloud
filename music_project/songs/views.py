@@ -15,18 +15,10 @@ class IndexView(LoginRequiredMixin, ListView):
     context_object_name = 'albums'
     ordering = ['-date_created']
 
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
-
 
 class DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Album
     template_name = 'songs/detail.html'
-
-    def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super().form_valid(form)
 
     def test_func(self):
         album = self.get_object()
