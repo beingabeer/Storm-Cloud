@@ -6,8 +6,9 @@ from django.conf.urls import url
 app_name = 'songs'
 
 urlpatterns = [
-    # /songs/
+    # /
     path('', views.IndexView.as_view(), name='index'),
+
 
     path('music/tracks/', views.songs, name='all-songs'),
 

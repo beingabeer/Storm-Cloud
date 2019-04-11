@@ -7,12 +7,11 @@
     <div class="row">
         {% if albums %}
             <div class="col-sm-12">
-                <h2>Albums</h2>
+                <h2>{{ user.username }}'s Albums</h2>
             </div>
             {% for album in albums %}
                 <div class="col-md-3">
                     <div class="thumbnail" style="background: #343a40;color: white;padding: 10px; margin-bottom: 20px;">
-                        <a href=""><h6>{{ album.user }}</h6></a>
                         <a href="{% url 'songs:detail' album.id %}">
                             <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="margin-bottom: 15px;">
                         </a>

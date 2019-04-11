@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Album, Song
+from django.contrib.auth.models import User
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.http import JsonResponse
@@ -13,14 +14,17 @@ class IndexView(LoginRequiredMixin, ListView):
     model = Album
     template_name = 'songs/index.html'
     context_object_name = 'albums'
-    ordering = ['-date_created']
+
+    def get_queryset(self):
+        return Album.objects.filter(user=self.request.user).order_by('-date_created')
 
 
-class UserIndexView(ListView):
-    model = Album
-    template_name = 'songs/user_index.html'
-    context_object_name = 'albums'
-
+# Working function based index view code
+# @login_required
+# def IndexView(request):
+#     albums = Album.objects.filter(user=request.user)
+#     song_results = Song.objects.all()
+#     return render(request, 'songs/index.html', {'albums': albums})
 
 class DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Album
