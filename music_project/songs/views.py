@@ -16,6 +16,12 @@ class IndexView(LoginRequiredMixin, ListView):
     ordering = ['-date_created']
 
 
+class UserIndexView(ListView):
+    model = Album
+    template_name = 'songs/user_index.html'
+    context_object_name = 'albums'
+
+
 class DetailView(LoginRequiredMixin, UserPassesTestMixin, DetailView):
     model = Album
     template_name = 'songs/detail.html'
