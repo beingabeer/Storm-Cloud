@@ -161,10 +161,26 @@ def songs(request):
     # else:
     try:
         song_ids = []
-        for album in Album.objects.all():
+        for album in Album.objects.filter(user=request.user):
             for song in album.song_set.all():
                 song_ids.append(song.pk)
         songs = Song.objects.all()
     except Album.DoesNotExist:
         songs = []
     return render(request, 'songs/tracks.html', {'song_list': songs})
+
+
+@login_required
+def songs(request):
+    try:
+        song_ids = []
+        for album in Album.objects.filter(user=request.user):
+            for song in album.song_set.all():
+                song_ids.append(song.pk)
+        users_songs = Song.objects.filter(pk__in=song_ids)
+
+    except Album.DoesNotExist:
+        users_songs = []
+    return render(request, 'songs/tracks.html', {
+        'song_list': users_songs,
+    })
