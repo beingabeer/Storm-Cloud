@@ -10,6 +10,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 
 
+def homepage(request):
+    return render(request, 'songs/home.html')
+
+
 class IndexView(LoginRequiredMixin, ListView):
     model = Album
     template_name = 'songs/index.html'

@@ -7,8 +7,11 @@ from django.conf.urls import url
 app_name = 'songs'
 
 urlpatterns = [
-    # /
-    path('', views.IndexView.as_view(), name='index'),
+
+    path('', views.homepage, name='home'),
+
+    # /music
+    path('music/', views.IndexView.as_view(), name='index'),
 
 
     path('music/tracks/', views.songs, name='all-songs'),
