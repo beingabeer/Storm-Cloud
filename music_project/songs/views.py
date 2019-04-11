@@ -68,7 +68,7 @@ class AlbumUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class AlbumDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Album
-    success_url = '/'
+    success_url = '/music/'
 
     def form_valid(self, form):
         form.instance.user = self.request.user
