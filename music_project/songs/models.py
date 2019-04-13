@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from django.utils import timezone
 from django.contrib.auth.models import User
+from .formatChecker import ContentTypeRestrictedFileField
 
 
 class Album(models.Model):
@@ -9,7 +10,7 @@ class Album(models.Model):
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=250)
     genre = models.CharField(max_length=100, blank=True)
-    album_logo = models.FileField(default='amber_treble.png', upload_to='album_logo')
+    album_logo = models.ImageField(default='amber_treble.png', upload_to='album_logo')
     date_created = models.DateTimeField(default=timezone.now)
     is_favorite = models.BooleanField(default=False)
 
@@ -23,7 +24,8 @@ class Album(models.Model):
 class Song(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     song_title = models.CharField(max_length=250)
-    audio_file = models.FileField(upload_to='audio_files')
+    # audio_file = models.FileField(upload_to='audio_files')
+    audio_file = ContentTypeRestrictedFileField(upload_to='audio_files/', content_types=['audio/mp3', 'audio/mpeg', 'audio/mp3', ], max_upload_size=10485760)
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
