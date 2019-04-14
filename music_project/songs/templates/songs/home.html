@@ -8,27 +8,25 @@
 
 
 <div style="margin-top: 70px;">
-    <div class="container">
+    <!-- Left-aligned media object -->
+<div class="container">
         <div class="row">
-            <div class="col-md-8">
-                <div class="content-section">
-                    <div class="media" style="text-align: center;">
-                        <h2 class="navbar-brand" style="font-size: 50px;display: inline-block;"><strong>Amber</strong></h2>
-                        <img class="rounded-circle" src="{% static 'songs/images/am.jpg' %}" style="display: inline-block;height: 125px;width: 125px;margin-bottom: 30px;">
-                        <h2 class="navbar-brand" style="font-size: 50px;display: inline-block;"><strong>Beats</strong></h2>
-                        <div class="media-body">
-                          <p class="text-secondary" style="font-size: 25px;"><b>cloud music player</b></p>
-                        </div>
-
+            <div class="col-md-7">
+                <div class="media">
+                    <div class="media-left">
+                      <img src="{% static 'songs/images/am.jpg' %}" class="rounded-circle media-object" style="height: 100px;width: 100px;">
                     </div>
-                    <div class="border-top">
-                        <div style="margin-top: 20px;font-size: 24px;">
-                            <p>
-                                <b>Upload, store, and play all of your music from the cloud. You can now manage and listen to your music from any device, anywhere in the world.</b>
-                            </p>
-                        </div>
+                    <div class="media-body">
+                          <h2 class="media-heading navbar-brand" style="font-size: 40px;margin-left: 35px;"><strong>AmberBeats</strong></h2>
+                          <!-- <h2 class="navbar-brand" style="font-size: 50px;display: inline-block;"><strong>Amber</strong></h2> -->
+                          <p style="font-size: 20px;margin-left: 35px;"><strong>cloud music player</strong></p>
                     </div>
                 </div>
+                <hr style="height: 1px;color: #123455;background-color: #123455;border: none;">
+
+                <p style="font-size: 16px;color: #484848">
+                    <b>Upload, store, and play all of your music from the cloud. You can now manage and listen to your music from any device, anywhere in the world.</b>
+                </p>
             </div>
         </div>
     </div>
