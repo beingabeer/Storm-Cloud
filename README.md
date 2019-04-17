@@ -2,7 +2,7 @@
   <img height="180" src="https://raw.githubusercontent.com/beingabeer/Amber/master/cover.png">
 </p>
 
-### Demo Link
+# Demo Link
 
 [AmberBeats.com](https://www.amberbeats.com/)
 
