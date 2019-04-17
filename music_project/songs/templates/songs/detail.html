@@ -24,7 +24,7 @@
         </div>
 
         <!-- Right Song Info -->
-        <div class="col-md-9">
+        <div class="col-md-9 order-first order-md-2">
 
             <div>
                     <a style="color: white;text-decoration-line: none;" class="btn btn-primary btn-md" role="button" href="{% url 'songs:detail' album.id %}">View All Tracks</a>&nbsp;&nbsp;
@@ -33,7 +33,7 @@
 
                     <a style="color: white;text-decoration-line: none;" class="btn btn-warning btn-md" role="button" href="{% url 'songs:album-update' album.id %}">Edit Album Cover</a>&nbsp;&nbsp;
             </div>
-            <div class="card bg-dark text-white" style="margin-top: 25px;">
+            <div class="card bg-dark text-white" style="margin-top: 25px;margin-bottom: 10px;">
                 <div class="card-body">
 
                     <h3>All Tracks</h3>
@@ -45,16 +45,16 @@
                     <table class="table table-dark table-hover">
                         <thead>
                         <tr>
-                            <th>Title</th>
-                            <th>Audio File</th>
-                            <th>Favorite</th>
-                            <th>Actions</th>
+                            <th id="truncateLongTexts">Title</th>
+                            <th id="truncateLongTexts">Audio File</th>
+                            <th id="truncateLongTexts">Favorite</th>
+                            <th id="truncateLongTexts">Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                         {% for song in album.song_set.all %}
                             <tr>
-                                <td>{{ song.song_title }}</td>
+                                <td id="truncateLongTexts">{{ song.song_title }}</td>
                                 <td>
                                     <a target="_blank" href="{{ song.audio_file.url }}">
                                         <button type="button" class="btn btn-success btn-sm">
