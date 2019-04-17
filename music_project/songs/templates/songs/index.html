@@ -5,12 +5,10 @@
 
     <!-- Albums -->
     <div class="row">
+        <div class="col-md-12">
+            <div class="card-columns">
         {% if albums %}
             {% for album in albums %}
-                                    <div class="col-md-3">
-
-                    <div class="card-columns">
-
                         <div class="card" style="background-color: #343a40;color: white;margin-bottom: 20px;">
                             <div class="card-body" style="padding: 10px;">
 
@@ -37,12 +35,9 @@
                         </div>
 
                         </div>
-                    </div>
-
-                </div>
-
-                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
+            </div>
+        </div>
         {% else %}
         <div class="container h-100 d-flex justify-content-center">
             <div class="jumbotron my-auto" style="background-color: black;color: white;">
@@ -72,6 +67,5 @@
 </div>
 
 {% endblock content %}
-
 
 

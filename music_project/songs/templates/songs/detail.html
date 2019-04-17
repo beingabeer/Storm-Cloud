@@ -17,8 +17,8 @@
                         {% else %}
                             <h3>No image to display</h3>
                         {% endif %}
-                    <h2>{{ album.album_title }} {% if album.genre %}<small class="text-muted" style="font-size:20px;">({{ album.genre }})</small>{% endif %}</h2>
-                    <h3>{{ album.artist }}</h3>
+                    <h2 class="card-title">{{ album.album_title }} {% if album.genre %}<small class="text-muted" style="font-size:20px;">({{ album.genre }})</small>{% endif %}</h2>
+                    <h3 class="card-subtitle mb-2 text-muted">{{ album.artist }}</h3>
                 </div>
             </div>
         </div>
