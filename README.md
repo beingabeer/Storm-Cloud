@@ -1,7 +1,3 @@
-<p align="center">
-  <img height="180" src="https://raw.githubusercontent.com/beingabeer/Amber/master/music_project/reade_png/cover.png">
-</p>
-
 ## Demo Link
 
 [AmberBeats.com](https://www.amberbeats.com/)
