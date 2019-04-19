@@ -2,69 +2,63 @@
 {% block content %}
 
 <div class="albums-container container-fluid">
-
-    <!-- Albums -->
     <div class="row">
         <div class="col-md-12">
             <div class="card-columns">
-        {% if albums %}
-            {% for album in albums %}
-                        <div class="card" style="background-color: #343a40;color: white;margin-bottom: 20px;">
-                            <div class="card-body" style="padding: 10px;">
+                {% if albums %}
+                    {% for album in albums %}
+                        <div class="col-md-12">
+                            <div class="card" style="background-color: #343a40;color: white;margin-bottom: 20px;">
+                                <div class="card-body" style="padding: 10px;">
 
-                        <a href="{% url 'songs:detail' album.id %}">
-                            <!-- <div class="center-image"> -->
-                            <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="margin-bottom: 15px;width: 100%;">
-                            <!-- </div> -->
-                        </a>
-                        <div class="caption" >
-                            <h2 id="truncateLongTexts">{{ album.album_title }}</h2>
-                            <h4>{{ album.artist }}</h4>
+                                    <a href="{% url 'songs:detail' album.id %}">
+                                    <div class="center-image">
+                                        <img src="{{ album.album_logo.url }}" class="img-fluid img-thumbnail" style="margin-bottom: 15px;width: 100%;">
+                                    </div>
+                                    </a>
+                                    <div class="caption" >
+                                        <h2 id="truncateLongTexts">{{ album.album_title }}</h2>
+                                        <h4>{{ album.artist }}</h4>
 
-                            <!-- View Details -->
-                            <a href="{% url 'songs:detail' album.id %}" class="btn btn-primary btn-md" role="button">View Details</a>
+                                        <!-- View Details -->
+                                        <a href="{% url 'songs:detail' album.id %}" class="btn btn-primary btn-md" role="button">View Details</a>
 
-                            <!-- Delete Album -->
-                                <a href="{% url 'songs:album-delete' album.id %}" class="btn btn-dark"><i class="fa fa-trash-alt fa-lg"></i></a>
+                                        <!-- Delete Album -->
+                                            <a href="{% url 'songs:album-delete' album.id %}" class="btn btn-dark"><i class="fa fa-trash-alt fa-lg"></i></a>
 
-                            <!-- Favorite Album -->
-                            <a href="{% url 'songs:favorite_album' album.id %}" class="btn btn-dark " role="button">
-                                <i class="fa fa-star {% if album.is_favorite %}active{% endif %} fa-lg"></i>
-                            </a>
+                                        <!-- Favorite Album -->
+                                        <a href="{% url 'songs:favorite_album' album.id %}" class="btn btn-dark " role="button">
+                                            <i class="fa fa-star {% if album.is_favorite %}active{% endif %} fa-lg"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        </div>
-
-                        </div>
-            {% endfor %}
+                    {% endfor %}
             </div>
         </div>
-        {% else %}
-        <div class="container h-100 d-flex justify-content-center">
-            <div class="jumbotron my-auto" style="background-color: black;color: white;">
-              <h1 class="display-6" style="text-decoration-color: white;">Add an Album</h1>
-              <div style="text-align: center;">
-                <a href="{% url 'songs:album-add' %}" style="color: white;">
-                  <button class="btn btn-danger btn-lg">
-                    <i class="fa fa-plus fa-lg"></i>&nbsp;Add Album
-                  </button>
-                  </a>
-              </div>
+            {% else %}
+            <div class="card text-white" style="background-color: black;">
+                <div class="card-body">
+                    <h1 class="display-6" style="text-decoration-color: white;text-align: center;">Hi {{ user.username }}!</h1>
+                    <h4 style="text-align: center;">Start by Adding an Album</h4>
+                    <div style="text-align: center;">
+                        <a href="{% url 'songs:album-add' %}" style="color: white;">
+                          <button class="btn btn-danger btn-lg">
+                            <i class="fa fa-plus fa-lg"></i>&nbsp;Add Album
+                          </button>
+                          </a>
+                      </div>
+                </div>
             </div>
-        </div>
         {% endif %}
     </div>
-        <div class="col-md-3">
-            <button class="btn btn-primary btn-lg">Next Page</button>
-        </div>
-
-
-
-
+</div>
 
     <!-- If user searches and there are songs -->
 
 
-</div>
+
 
 {% endblock content %}
 
