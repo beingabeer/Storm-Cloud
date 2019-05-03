@@ -1,8 +1,8 @@
 ## Demo Link
 
-[AmberBeats.com](https://www.amberbeats.com/)
+[Storm-Cloud.net](https://www.amberbeats.com/)
 
-## What is Amber?
+## What is Storm Cloud?
 
 Amber is an application that let's you upload, store, and play all of your music from the cloud. You can manage and listen to your music from any device, anywhere in the world. 
 
