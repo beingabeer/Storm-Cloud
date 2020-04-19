@@ -1,6 +1,6 @@
 ## Demo Link
 
-[Storm-Cloud.net](https://www.amberbeats.com/)
+[Storm-Cloud.net](http://www.thesoundcloud.net/)
 
 ## What is Storm Cloud?
 
