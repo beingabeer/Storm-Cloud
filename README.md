@@ -18,7 +18,7 @@ To get started, first create a new album. When adding an album cover logo, it's 
 
 After an album is created you will then be able to add/upload songs. Currently supported file types are WAV, MP3, and OGG.
 
-![](https://raw.githubusercontent.com/beingabeer/Amber/master/music_project/reade_png/song.png)
+![](https://github.com/beingabeer/Storm-Cloud/blob/master/music_project/reade_png/add_song.PNG)
 
 
 ## My Songs
