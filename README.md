@@ -6,7 +6,7 @@
 
 StormCloud is an application that let's you upload, store, and play all of your music from the cloud. You can manage and listen to your music from any device, anywhere in the world. 
 
-![](https://raw.githubusercontent.com/beingabeer/Amber/master/music_project/reade_png/album.png)
+![](https://github.com/beingabeer/Storm-Cloud/blob/master/music_project/reade_png/homepage.png)
 
 ## How does it work?
 
