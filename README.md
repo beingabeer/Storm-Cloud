@@ -12,7 +12,7 @@ StormCloud is an application that let's you upload, store, and play all of your 
 
 To get started, first create a new album. When adding an album cover logo, it's best to have a resolution of at least 512x512 and to use common image formats such as JPG, JPEG, or PNG.
 
-![](https://raw.githubusercontent.com/beingabeer/Amber/master/music_project/reade_png/add_album.png)
+![](https://github.com/beingabeer/Storm-Cloud/blob/master/music_project/reade_png/albums.png)
 
 ## Adding Songs
 
@@ -25,7 +25,7 @@ After an album is created you will then be able to add/upload songs. Currently s
 
 Once songs are added to an album you are then able to play, favorite, and delete them.
 
-![](https://raw.githubusercontent.com/beingabeer/Amber/master/music_project/reade_png/song_list.png)
+![](https://github.com/beingabeer/Storm-Cloud/blob/master/music_project/reade_png/detail.png)
 
 
 ## Searching
