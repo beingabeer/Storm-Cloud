@@ -1,6 +1,6 @@
 ## Demo Link
 
-[Storm-Cloud.net](http://www.thesoundcloud.net/)
+[Storm-Cloud.net](https://thesoundcloud.herokuapp.com/)
 
 ## What is Storm Cloud?
 
