@@ -1,6 +1,6 @@
 boto3==1.9.130
 botocore==1.12.130
-certifi==2019.3.9
+certifi==2022.12.7
 Django==2.1.7
 django-crispy-forms==1.7.2
 django-storages==1.7.1
